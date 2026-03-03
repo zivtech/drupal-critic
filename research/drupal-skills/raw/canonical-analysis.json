@@ -1,0 +1,972 @@
+[
+  {
+    "canonical_id": "madsnorgaard/agent-resources/drupal-expert",
+    "skill_name": "drupal-expert",
+    "description": "Drupal 10/11 development expertise. Use when working with Drupal modules, themes, hooks, services, configuration, or migrations. Triggers on mentions of Drupal, Drush, Twig, modules, themes, or Drupal API.",
+    "installs": 142,
+    "source": "madsnorgaard/agent-resources",
+    "repo_sha": "9cb92d8e129f9cb6a11e3bfb4fb06bddbe4e5f21",
+    "aliases": [
+      "madsnorgaard/drupal-agent-resources/drupal-expert"
+    ],
+    "content_sha256": "15e924220d1b41ae135d0f19ec24fabb081ef60e882e30df8ff630ec28e68b91",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 5,
+      "operational_safety": 4,
+      "review_usefulness": 3,
+      "tooling_realism": 4,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Includes operational/safety guardrails (security, validation, rollback, or access controls).",
+      "Tooling guidance is concrete and executable in real Drupal environments."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/madsnorgaard__agent-resources__drupal-expert/SKILL.md"
+  },
+  {
+    "canonical_id": "madsnorgaard/agent-resources/drupal-security",
+    "skill_name": "drupal-security",
+    "description": "Drupal security expertise. Auto-activates when writing forms, controllers, queries, or handling user input. Prevents XSS, SQL injection, and access bypass vulnerabilities.",
+    "installs": 95,
+    "source": "madsnorgaard/agent-resources",
+    "repo_sha": "9cb92d8e129f9cb6a11e3bfb4fb06bddbe4e5f21",
+    "aliases": [
+      "madsnorgaard/drupal-agent-resources/drupal-security"
+    ],
+    "content_sha256": "6ecaae5ae5cae8b7ddd3b48ca9dce41c2b85186593def6f15b17536d2f19586e",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 3,
+      "operational_safety": 4,
+      "review_usefulness": 3,
+      "tooling_realism": 2,
+      "maintainability_signal": 2
+    },
+    "strengths": [
+      "Includes operational/safety guardrails (security, validation, rollback, or access controls)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/madsnorgaard__agent-resources__drupal-security/SKILL.md"
+  },
+  {
+    "canonical_id": "mindrally/skills/drupal-development",
+    "skill_name": "drupal-development",
+    "description": "Expert guidance for Drupal 10 module development with PHP 8+, SOLID principles, and Drupal coding standards",
+    "installs": 78,
+    "source": "mindrally/skills",
+    "repo_sha": "47f47c12e62f62b5e171bd5af61d0fc24b329701",
+    "aliases": [],
+    "content_sha256": "d892b5af604d5d736721300b90bc6f75929376b43e1dc65ac0040982637b8fcb",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 3,
+      "operational_safety": 3,
+      "review_usefulness": 1,
+      "tooling_realism": 2,
+      "maintainability_signal": 2
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/mindrally__skills__drupal-development/SKILL.md"
+  },
+  {
+    "canonical_id": "bethamil/agent-skills/drupal-update",
+    "skill_name": "drupal-update",
+    "description": "Automate Drupal module updates in DDEV environments with safety snapshots, composer update, drush updb, config export, and changelog generation. Handles security updates, patch versions, minor versions, and major version upgrades with compatibility checking. Use when updating Drupal modules, checking for module updates, running composer update, upgrading dependencies, checking outdated packages, or when user mentions DDEV, drush, composer outdated, or module security updates.",
+    "installs": 22,
+    "source": "bethamil/agent-skills",
+    "repo_sha": "e7ffea4e000553201da25c98c804105f59f718e6",
+    "aliases": [],
+    "content_sha256": "7f7815fc019baa039aaeedbe17f569e9e4342c220dae8db616efd61c69feba04",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 3,
+      "review_usefulness": 4,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Useful for rigorous review workflows (checklists/evidence/audit framing).",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Tooling instructions are sparse or not specific enough for repeatable execution."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/bethamil__agent-skills__drupal-update/SKILL.md"
+  },
+  {
+    "canonical_id": "madsnorgaard/agent-resources/drupal-migration",
+    "skill_name": "drupal-migration",
+    "description": "Drupal migration expertise. Use when working with D7-to-D10 migrations, CSV imports, JSON API imports, or custom migration plugins.",
+    "installs": 22,
+    "source": "madsnorgaard/agent-resources",
+    "repo_sha": "9cb92d8e129f9cb6a11e3bfb4fb06bddbe4e5f21",
+    "aliases": [
+      "madsnorgaard/drupal-agent-resources/drupal-migration",
+      "neversight/learn-skills.dev/drupal-migration"
+    ],
+    "content_sha256": "09d65aeb886aaedd7ba83549f44492726dd59d434da5743610b2d59600ab19f0",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 3,
+      "maintainability_signal": 3
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/madsnorgaard__agent-resources__drupal-migration/SKILL.md"
+  },
+  {
+    "canonical_id": "drupal-canvas/skills/canvas-component-metadata",
+    "skill_name": "canvas-component-metadata",
+    "description": "Define valid component.yml metadata for Canvas components, including props,",
+    "installs": 18,
+    "source": "drupal-canvas/skills",
+    "repo_sha": "ed912ea2210b373f01dd32d093cf8687dededc42",
+    "aliases": [],
+    "content_sha256": "b6e2552e51583e0d5d26c226e6e9515663ce3f78de60b55319c85c71dcaaa911",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 2,
+      "operational_safety": 1,
+      "review_usefulness": 1,
+      "tooling_realism": 1,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/drupal-canvas__skills__canvas-component-metadata/SKILL.md"
+  },
+  {
+    "canonical_id": "drupal-canvas/skills/canvas-component-definition",
+    "skill_name": "canvas-component-definition",
+    "description": "Start here for any React component task to enforce the canonical Canvas",
+    "installs": 17,
+    "source": "drupal-canvas/skills",
+    "repo_sha": "ed912ea2210b373f01dd32d093cf8687dededc42",
+    "aliases": [],
+    "content_sha256": "4381dd0acfedcd11b84bb6775b757e68870371419d4565401b16461b1d1d9ce7",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 2,
+      "operational_safety": 2,
+      "review_usefulness": 2,
+      "tooling_realism": 2,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/drupal-canvas__skills__canvas-component-definition/SKILL.md"
+  },
+  {
+    "canonical_id": "drupal-canvas/skills/canvas-component-composability",
+    "skill_name": "canvas-component-composability",
+    "description": "Design Canvas-ready React components with slots and decomposition-first",
+    "installs": 16,
+    "source": "drupal-canvas/skills",
+    "repo_sha": "ed912ea2210b373f01dd32d093cf8687dededc42",
+    "aliases": [],
+    "content_sha256": "9c3459fb2ef47e0772bb71a0a6cf613c765c25d4fb0aab8c1ab82bac3bba9ef2",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 1,
+      "operational_safety": 1,
+      "review_usefulness": 1,
+      "tooling_realism": 1,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/drupal-canvas__skills__canvas-component-composability/SKILL.md"
+  },
+  {
+    "canonical_id": "drupal-canvas/skills/canvas-component-upload",
+    "skill_name": "canvas-component-upload",
+    "description": "Upload validated components to Drupal Canvas and recover from common upload",
+    "installs": 16,
+    "source": "drupal-canvas/skills",
+    "repo_sha": "ed912ea2210b373f01dd32d093cf8687dededc42",
+    "aliases": [],
+    "content_sha256": "e49d05b1d4766ee91120d5a4aee51531b9ec7fe68c2d5ae2e250da6b51a2c11f",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 2,
+      "operational_safety": 2,
+      "review_usefulness": 2,
+      "tooling_realism": 2,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/drupal-canvas__skills__canvas-component-upload/SKILL.md"
+  },
+  {
+    "canonical_id": "drupal-canvas/skills/canvas-component-utils",
+    "skill_name": "canvas-component-utils",
+    "description": "Use utility components to render formatted text and media correctly. Use when",
+    "installs": 16,
+    "source": "drupal-canvas/skills",
+    "repo_sha": "ed912ea2210b373f01dd32d093cf8687dededc42",
+    "aliases": [],
+    "content_sha256": "140d345228d15211d76b7fe71ab48e6ed076bdcc23aac728792da36c8e4bbc63",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 2,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 1,
+      "maintainability_signal": 2
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/drupal-canvas__skills__canvas-component-utils/SKILL.md"
+  },
+  {
+    "canonical_id": "drupal-canvas/skills/canvas-data-fetching",
+    "skill_name": "canvas-data-fetching",
+    "description": "Fetch and render Drupal content in Canvas components with JSON:API and SWR",
+    "installs": 16,
+    "source": "drupal-canvas/skills",
+    "repo_sha": "ed912ea2210b373f01dd32d093cf8687dededc42",
+    "aliases": [],
+    "content_sha256": "01f5601bbd9f336cf0dcc5975d0c88f4ed93e23b61ff48bdc61421d0b36ad752",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 3,
+      "operational_safety": 1,
+      "review_usefulness": 2,
+      "tooling_realism": 2,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/drupal-canvas__skills__canvas-data-fetching/SKILL.md"
+  },
+  {
+    "canonical_id": "drupal-canvas/skills/canvas-styling-conventions",
+    "skill_name": "canvas-styling-conventions",
+    "description": "Style Canvas components with Tailwind CSS 4 theme tokens and approved utility",
+    "installs": 16,
+    "source": "drupal-canvas/skills",
+    "repo_sha": "ed912ea2210b373f01dd32d093cf8687dededc42",
+    "aliases": [],
+    "content_sha256": "b4fd411c565b450f72fdbabf9ea51b783f7e188844ed7fa3a893959b69dd57e8",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 2,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 1,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/drupal-canvas__skills__canvas-styling-conventions/SKILL.md"
+  },
+  {
+    "canonical_id": "kanopi/cms-cultivator/drupalorg-issue-helper",
+    "skill_name": "drupalorg-issue-helper",
+    "description": "Quick help with drupal.org issue templates, formatting, contributing patches, and best practices. Invoke when user asks \"how do I write a bug report?\", \"drupal.org issue template\", \"issue formatting\", \"I have a patch\", \"contribute back\", \"submit my fix\", \"I fixed a bug in a module\", or needs help structuring issue descriptions or contributing code to drupal.org projects.",
+    "installs": 11,
+    "source": "kanopi/cms-cultivator",
+    "repo_sha": "f539b9044d91565669b8e64f81c4f9f06729e2fa",
+    "aliases": [],
+    "content_sha256": "e894fdf24442a83d8328354550c05a8527d54f70b5688f57a8ac142353cf1089",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 3,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/kanopi__cms-cultivator__drupalorg-issue-helper/SKILL.md"
+  },
+  {
+    "canonical_id": "omedia/drupal-skill/drupal-frontend",
+    "skill_name": "drupal-frontend",
+    "description": "Drupal Front End Specialist skill for theme development, Twig templates, and rendering system (Drupal 8-11+). Use when working with Drupal themes, Twig syntax, preprocessing, CSS/JS libraries, or template suggestions.",
+    "installs": 11,
+    "source": "omedia/drupal-skill",
+    "repo_sha": "4a19d4ea80f2dd2bea2160c1a12bc425a6e13aa6",
+    "aliases": [],
+    "content_sha256": "ff8d70723699a19b27030618b278f28ce8480489866e02de73ec889e5afd3791",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 5,
+      "operational_safety": 2,
+      "review_usefulness": 2,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/omedia__drupal-skill__drupal-frontend/SKILL.md"
+  },
+  {
+    "canonical_id": "grasmash/drupal-claude-skills/drupal-at-your-fingertips",
+    "skill_name": "drupal-at-your-fingertips",
+    "description": "Comprehensive Drupal patterns from \"Drupal at Your Fingertips\" by Selwyn Polit. Covers 50+ topics including services, hooks, forms, entities, caching, testing, and more.",
+    "installs": 8,
+    "source": "grasmash/drupal-claude-skills",
+    "repo_sha": "d5690e0aa1e38fd1f991b80dee1d1d869d403cab",
+    "aliases": [],
+    "content_sha256": "b4a42fd88517843053d5ef1677abf6138d3b9291f840fe1f3da41721515ec0e6",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 3,
+      "maintainability_signal": 3
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/grasmash__drupal-claude-skills__drupal-at-your-fingertips/SKILL.md"
+  },
+  {
+    "canonical_id": "grasmash/drupal-claude-skills/drupal-config-mgmt",
+    "skill_name": "drupal-config-mgmt",
+    "description": "Safe patterns for inspecting and syncing Drupal configuration across environments without accidentally importing changes.",
+    "installs": 8,
+    "source": "grasmash/drupal-claude-skills",
+    "repo_sha": "d5690e0aa1e38fd1f991b80dee1d1d869d403cab",
+    "aliases": [],
+    "content_sha256": "dfbaa3df9cfbc1f66c4d019cb716756a753eb49df9fce98c18830fcc2d64ec6f",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 3,
+      "operational_safety": 1,
+      "review_usefulness": 2,
+      "tooling_realism": 3,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/grasmash__drupal-claude-skills__drupal-config-mgmt/SKILL.md"
+  },
+  {
+    "canonical_id": "grasmash/drupal-claude-skills/drupal-ddev",
+    "skill_name": "drupal-ddev",
+    "description": "DDEV local development environment patterns for Drupal, including configuration, commands, database management, debugging tools, and performance optimization.",
+    "installs": 8,
+    "source": "grasmash/drupal-claude-skills",
+    "repo_sha": "d5690e0aa1e38fd1f991b80dee1d1d869d403cab",
+    "aliases": [],
+    "content_sha256": "7a5b21bbe2849658f1148073a1b3252d4dbad91f64eb0a27cabc07dc84c3e596",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 2,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/grasmash__drupal-claude-skills__drupal-ddev/SKILL.md"
+  },
+  {
+    "canonical_id": "kanopi/cms-cultivator/drupalorg-contribution-helper",
+    "skill_name": "drupalorg-contribution-helper",
+    "description": "Quick help with drupal.org contribution workflows including git commands, branch naming, issue fork setup, and merge request creation. Invoke when user asks \"how do I contribute to drupal.org?\", \"drupal.org git workflow\", \"issue fork\", \"drupal merge request\", or needs help with git.drupalcode.org commands.",
+    "installs": 8,
+    "source": "kanopi/cms-cultivator",
+    "repo_sha": "f539b9044d91565669b8e64f81c4f9f06729e2fa",
+    "aliases": [],
+    "content_sha256": "df13ec18e4e7b176128e3903289707ffd98e0f13704b927c072ad06ce832d976",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 2,
+      "operational_safety": 2,
+      "review_usefulness": 2,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/kanopi__cms-cultivator__drupalorg-contribution-helper/SKILL.md"
+  },
+  {
+    "canonical_id": "sparkfabrik/sf-awesome-copilot/drupal-lazy-builders",
+    "skill_name": "drupal-lazy-builders",
+    "description": "Drupal lazy builders and placeholder implementation. Use when asked about #lazy_builder render array property, TrustedCallbackInterface, auto-placeholdering, BigPipe integration, personalized content caching, or how to make user-specific content cacheable.",
+    "installs": 7,
+    "source": "sparkfabrik/sf-awesome-copilot",
+    "repo_sha": "05c1602a3249a496e3d790a1a910e02e40edd7ef",
+    "aliases": [],
+    "content_sha256": "32b50fddf21e09c956bb84993896ace5ac58b725ef55817cde972fab2778ed09",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 2,
+      "maintainability_signal": 2
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/sparkfabrik__sf-awesome-copilot__drupal-lazy-builders/SKILL.md"
+  },
+  {
+    "canonical_id": "factorial-io/skills/drupal-recipe-content",
+    "skill_name": "drupal-recipe-content",
+    "description": "Create Drupal recipes that import content entities (taxonomy terms, nodes, media, menu links) with multilingual translations. Use this skill whenever the user wants to create a Drupal recipe with default content, import taxonomy terms or other content entities into Drupal via recipes, set up multilingual/translated content in a recipe, or export existing content for use in a recipe. Also trigger when the user mentions \"default content in recipes\", \"recipe with translations\", or \"content export for recipe\".",
+    "installs": 6,
+    "source": "factorial-io/skills",
+    "repo_sha": "9548fc63999294e7fc8361638e236274deff4314",
+    "aliases": [],
+    "content_sha256": "99a91d6b60e9cc62c89c4a990ba9aa56f972910cad1110dadaba9a6f272c3f55",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 1,
+      "review_usefulness": 1,
+      "tooling_realism": 3,
+      "maintainability_signal": 3
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/factorial-io__skills__drupal-recipe-content/SKILL.md"
+  },
+  {
+    "canonical_id": "omedia/drupal-skill/drupal-backend",
+    "skill_name": "drupal-backend",
+    "description": "Drupal Back End Specialist skill for custom module development, hooks, APIs, and PHP programming (Drupal 8-11+). Use when building custom modules, implementing hooks, working with entities, forms, plugins, or services.",
+    "installs": 6,
+    "source": "omedia/drupal-skill",
+    "repo_sha": "4a19d4ea80f2dd2bea2160c1a12bc425a6e13aa6",
+    "aliases": [],
+    "content_sha256": "ba66654626364a38102b57081430e32cbe24aae3c1077ba99571fed69986320d",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 5,
+      "operational_safety": 3,
+      "review_usefulness": 2,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/omedia__drupal-skill__drupal-backend/SKILL.md"
+  },
+  {
+    "canonical_id": "ronaldtebrake/drupal-coding-standards-skill/drupal-coding-standards",
+    "skill_name": "drupal-coding-standards",
+    "description": "Review code according to Drupal's official coding standards. Provides AI agents with comprehensive guidelines for PHP, JavaScript, CSS, Twig, YAML, SQL, and markup files in Drupal projects. Uses dynamic context discovery to load only relevant standards based on file type being reviewed.",
+    "installs": 6,
+    "source": "ronaldtebrake/drupal-coding-standards-skill",
+    "repo_sha": "3e91251cf81a604c2c10c24f353641666391840a",
+    "aliases": [],
+    "content_sha256": "4e4ee35a8babea0925478b36df42671db414fb6f3393305c703d77f46095dcf2",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 3,
+      "operational_safety": 1,
+      "review_usefulness": 2,
+      "tooling_realism": 2,
+      "maintainability_signal": 2
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/ronaldtebrake__drupal-coding-standards-skill__drupal-coding-standards/SKILL.md"
+  },
+  {
+    "canonical_id": "scottfalconer/drupal-issue-queue/drupal-issue-queue",
+    "skill_name": "drupal-issue-queue",
+    "description": "Search Drupal.org issue queues and summarize individual issues via the Drupal.org api-d7 endpoints. Use for triage or debugging errors by checking for existing issues before patching, filtering by status/priority/category/version/component/tag, summarizing issue threads, or extracting recent patches/files into JSON or Markdown while respecting Drupal.org API constraints (single-threaded, cached, rate-limited, read-only).",
+    "installs": 6,
+    "source": "scottfalconer/drupal-issue-queue",
+    "repo_sha": "7be7938d85ca71a1581d913d19cba0aa67c7f2c0",
+    "aliases": [],
+    "content_sha256": "7c6e6e662ce9b2670e3c646a6e53bf0d530196058ffc2d8687d52305f40ff03e",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 2,
+      "operational_safety": 1,
+      "review_usefulness": 1,
+      "tooling_realism": 2,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/scottfalconer__drupal-issue-queue__drupal-issue-queue/SKILL.md"
+  },
+  {
+    "canonical_id": "sparkfabrik/sf-awesome-copilot/drupal-cache-contexts",
+    "skill_name": "drupal-cache-contexts",
+    "description": "Drupal cache contexts implementation guide. Use when asked about request-based cache variations, user.roles vs user context, URL contexts, language contexts, custom cache contexts, or cache context hierarchy. Helps prevent cache explosion from overly broad contexts.",
+    "installs": 6,
+    "source": "sparkfabrik/sf-awesome-copilot",
+    "repo_sha": "05c1602a3249a496e3d790a1a910e02e40edd7ef",
+    "aliases": [],
+    "content_sha256": "fa005bcfaaf8f88bff5030f7ab49b84614c04ca978192813a749327f22218d5c",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 3,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 2,
+      "maintainability_signal": 2
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/sparkfabrik__sf-awesome-copilot__drupal-cache-contexts/SKILL.md"
+  },
+  {
+    "canonical_id": "grasmash/drupal-claude-skills/drupal-contrib-mgmt",
+    "skill_name": "drupal-contrib-mgmt",
+    "description": "Comprehensive guide for managing Drupal contributed modules via Composer, including updates, patches, version compatibility, and Drupal 11 upgrades. Use when updating modules or resolving dependency issues.",
+    "installs": 5,
+    "source": "grasmash/drupal-claude-skills",
+    "repo_sha": "d5690e0aa1e38fd1f991b80dee1d1d869d403cab",
+    "aliases": [],
+    "content_sha256": "e8c106aee2ed569a51042fe963bf875d8a343b85b4b3aaedf224661401b0a7b0",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 3,
+      "tooling_realism": 4,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Tooling guidance is concrete and executable in real Drupal environments.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/grasmash__drupal-claude-skills__drupal-contrib-mgmt/SKILL.md"
+  },
+  {
+    "canonical_id": "grasmash/drupal-claude-skills/ivangrynenko-cursorrules-drupal",
+    "skill_name": "ivangrynenko-cursorrules-drupal",
+    "description": "Drupal development and security patterns from Ivan Grynenko's cursor rules. Covers OWASP Top 10, authentication, access control, injection prevention, cryptography, configuration, database standards, file permissions, and more.",
+    "installs": 5,
+    "source": "grasmash/drupal-claude-skills",
+    "repo_sha": "d5690e0aa1e38fd1f991b80dee1d1d869d403cab",
+    "aliases": [],
+    "content_sha256": "cc43c49ad6eaf681482ebfa61026217626a297fcc228f473f31d01b9e8cd4908",
+    "scores": {
+      "trigger_precision": 1,
+      "drupal_depth": 2,
+      "operational_safety": 4,
+      "review_usefulness": 1,
+      "tooling_realism": 2,
+      "maintainability_signal": 3
+    },
+    "strengths": [
+      "Includes operational/safety guardrails (security, validation, rollback, or access controls)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/grasmash__drupal-claude-skills__ivangrynenko-cursorrules-drupal/SKILL.md"
+  },
+  {
+    "canonical_id": "madsnorgaard/drupal-agent-resources/ddev-expert",
+    "skill_name": "ddev-expert",
+    "description": "DDEV local development expertise. Use when working with DDEV projects, containers, configuration, or troubleshooting DDEV environments.",
+    "installs": 5,
+    "source": "madsnorgaard/drupal-agent-resources",
+    "repo_sha": "9cb92d8e129f9cb6a11e3bfb4fb06bddbe4e5f21",
+    "aliases": [],
+    "content_sha256": "df53c342e7a1e47707979c0c788036aa17121e1245e927ab789210c74722ae0e",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 3,
+      "review_usefulness": 1,
+      "tooling_realism": 4,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Tooling guidance is concrete and executable in real Drupal environments.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/madsnorgaard__drupal-agent-resources__ddev-expert/SKILL.md"
+  },
+  {
+    "canonical_id": "scottfalconer/drupal-contribute-fix/drupal-contribute-fix",
+    "skill_name": "drupal-contribute-fix",
+    "description": "**Use this skill for ANY Drupal contrib/core bug - even \"local fixes\".**",
+    "installs": 5,
+    "source": "scottfalconer/drupal-contribute-fix",
+    "repo_sha": "801cee9b6ebe2e6c9ab5740cdc3085de5ea3009a",
+    "aliases": [],
+    "content_sha256": "3193cbca3bf19c1a3b60f6025f68a713f8a4b1182835dab51d4c1482345d8d13",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 3,
+      "tooling_realism": 4,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Tooling guidance is concrete and executable in real Drupal environments.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/scottfalconer__drupal-contribute-fix__drupal-contribute-fix/SKILL.md"
+  },
+  {
+    "canonical_id": "scottfalconer/drupal-intent-testing/drupal-intent-testing",
+    "skill_name": "drupal-intent-testing",
+    "description": "This skill is for **“does this do what we meant?”** testing — the semi-random, UI-first verification you’d do manually, but with an agent driving a real browser.",
+    "installs": 5,
+    "source": "scottfalconer/drupal-intent-testing",
+    "repo_sha": "f5f3cb1662689f17fd0d9b855b7653b9b95401d6",
+    "aliases": [],
+    "content_sha256": "d9a5926df43ea6194fdff103711a7d977050a7966424cd1cfc61376abe5b793c",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 3,
+      "review_usefulness": 3,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/scottfalconer__drupal-intent-testing__drupal-intent-testing/SKILL.md"
+  },
+  {
+    "canonical_id": "madsnorgaard/drupal-agent-resources/docker-local",
+    "skill_name": "docker-local",
+    "description": "Custom Docker Compose local development patterns. Use when working with Docker-based local environments, container configuration, or troubleshooting Docker setups.",
+    "installs": 4,
+    "source": "madsnorgaard/drupal-agent-resources",
+    "repo_sha": "9cb92d8e129f9cb6a11e3bfb4fb06bddbe4e5f21",
+    "aliases": [],
+    "content_sha256": "68589a1b890e92b523f8b82943d9918d5ebe58e2cab6dda18a84b8313ba9ba7b",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 4,
+      "maintainability_signal": 2
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Tooling guidance is concrete and executable in real Drupal environments."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/madsnorgaard__drupal-agent-resources__docker-local/SKILL.md"
+  },
+  {
+    "canonical_id": "omedia/drupal-skill/drupal-tooling",
+    "skill_name": "drupal-tooling",
+    "description": "Drupal development tooling skill for DDEV local environments and Drush command-line operations (Drupal 8-11+). Use when working with Docker-based development environments, Drush commands, deployment workflows, or site management tasks.",
+    "installs": 4,
+    "source": "omedia/drupal-skill",
+    "repo_sha": "4a19d4ea80f2dd2bea2160c1a12bc425a6e13aa6",
+    "aliases": [],
+    "content_sha256": "210316a4264cabcc22fc910750270fecf744074ee7928dd912e3b18bda335f8d",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 5,
+      "operational_safety": 4,
+      "review_usefulness": 1,
+      "tooling_realism": 4,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Includes operational/safety guardrails (security, validation, rollback, or access controls).",
+      "Tooling guidance is concrete and executable in real Drupal environments."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/omedia__drupal-skill__drupal-tooling/SKILL.md"
+  },
+  {
+    "canonical_id": "sparkfabrik/sf-awesome-copilot/drupal-cache-debugging",
+    "skill_name": "drupal-cache-debugging",
+    "description": "Drupal cache debugging techniques and troubleshooting workflows. Use when asked about X-Drupal-Cache headers interpretation, finding max-age 0 sources, WebProfiler usage, cache hit/miss analysis, stale content debugging, or performance profiling cache-related issues.",
+    "installs": 4,
+    "source": "sparkfabrik/sf-awesome-copilot",
+    "repo_sha": "05c1602a3249a496e3d790a1a910e02e40edd7ef",
+    "aliases": [],
+    "content_sha256": "4b2d2e8c35383eef1cb7fe7745b247de1517a52b82ffc60ce8f6db15c2856961",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 5,
+      "operational_safety": 3,
+      "review_usefulness": 2,
+      "tooling_realism": 3,
+      "maintainability_signal": 4
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology.",
+      "Good structure for long-term maintainability (steps/examples/references/scripts)."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/sparkfabrik__sf-awesome-copilot__drupal-cache-debugging/SKILL.md"
+  },
+  {
+    "canonical_id": "sparkfabrik/sf-awesome-copilot/drupal-cache-maxage",
+    "skill_name": "drupal-cache-maxage",
+    "description": "Drupal cache max-age configuration and behavior. Use when asked about time-based cache expiration, Cache::PERMANENT, max-age 0 issues, why Page Cache ignores max-age, or when content appears stale despite time expiration. Critical for understanding caching layer differences.",
+    "installs": 3,
+    "source": "sparkfabrik/sf-awesome-copilot",
+    "repo_sha": "05c1602a3249a496e3d790a1a910e02e40edd7ef",
+    "aliases": [],
+    "content_sha256": "6056186728c219bf41b0f3e66e550a0a9c33e879753d67a11a91b7fe34a39b37",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 2,
+      "tooling_realism": 3,
+      "maintainability_signal": 2
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/sparkfabrik__sf-awesome-copilot__drupal-cache-maxage/SKILL.md"
+  },
+  {
+    "canonical_id": "sparkfabrik/sf-awesome-copilot/drupal-cache-tags",
+    "skill_name": "drupal-cache-tags",
+    "description": "Drupal cache tags implementation guide. Use when asked about cache tag naming conventions, entity tags, list tags, custom tags, tag invalidation strategies, or debugging tag-based cache invalidation issues. Covers node:ID, config:name, entity_list patterns.",
+    "installs": 3,
+    "source": "sparkfabrik/sf-awesome-copilot",
+    "repo_sha": "05c1602a3249a496e3d790a1a910e02e40edd7ef",
+    "aliases": [],
+    "content_sha256": "6035a0a8031b8341afbdb877e488baf9f21f575e04d82965e98a38a4704c263e",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 4,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 3,
+      "maintainability_signal": 3
+    },
+    "strengths": [
+      "Strong Drupal-specific coverage with concrete platform concepts and terminology."
+    ],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Operational and failure-mode coverage is thin for risky changes.",
+      "Weak review rigor; mostly procedural guidance without deep critique structure."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/sparkfabrik__sf-awesome-copilot__drupal-cache-tags/SKILL.md"
+  },
+  {
+    "canonical_id": "sparkfabrik/sf-awesome-copilot/drupal-dynamic-cache",
+    "skill_name": "drupal-dynamic-cache",
+    "description": "Dynamic Page Cache and BigPipe module behavior in Drupal. Use when asked about authenticated user caching, auto-placeholdering, lazy builders, BigPipe streaming, X-Drupal-Dynamic-Cache header, or why content shows UNCACHEABLE status. Covers interaction between caching layers.",
+    "installs": 3,
+    "source": "sparkfabrik/sf-awesome-copilot",
+    "repo_sha": "05c1602a3249a496e3d790a1a910e02e40edd7ef",
+    "aliases": [],
+    "content_sha256": "def624cb09be57fa12bfb6fe370878975b1c5b22a3bc9c6b16f4e0419ad2163b",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 3,
+      "operational_safety": 1,
+      "review_usefulness": 2,
+      "tooling_realism": 2,
+      "maintainability_signal": 2
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/sparkfabrik__sf-awesome-copilot__drupal-dynamic-cache/SKILL.md"
+  },
+  {
+    "canonical_id": "sparkfabrik/sf-awesome-copilot/sparkfabrik-drupal-containers",
+    "skill_name": "sparkfabrik-drupal-containers",
+    "description": "SparkFabrik Drupal project container context. Use when running commands in local development environment, accessing Drupal from containers, or using fs-cli and make commands.",
+    "installs": 2,
+    "source": "sparkfabrik/sf-awesome-copilot",
+    "repo_sha": "05c1602a3249a496e3d790a1a910e02e40edd7ef",
+    "aliases": [],
+    "content_sha256": "8ab82bf3116d040e1ed5b5356930c33040af199f251d1d19afcf7d1beb716849",
+    "scores": {
+      "trigger_precision": 2,
+      "drupal_depth": 3,
+      "operational_safety": 2,
+      "review_usefulness": 1,
+      "tooling_realism": 3,
+      "maintainability_signal": 3
+    },
+    "strengths": [],
+    "weaknesses": [
+      "Trigger guidance is broad or implicit, which can cause under/over-triggering.",
+      "Limited Drupal depth; guidance may be too generic for complex Drupal work.",
+      "Operational and failure-mode coverage is thin for risky changes."
+    ],
+    "path": "/Users/AlexUA/drupal-critic/research/drupal-skills/extracted/sparkfabrik__sf-awesome-copilot__sparkfabrik-drupal-containers/SKILL.md"
+  }
+]

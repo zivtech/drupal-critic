@@ -1,0 +1,4 @@
+interface:
+  display_name: "Drupal Critic"
+  short_description: "Drupal-specific harsh review orchestration"
+  default_prompt: "Perform a Drupal-focused harsh review with evidence-backed findings and context-driven audience lenses."

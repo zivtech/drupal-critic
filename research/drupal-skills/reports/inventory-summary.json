@@ -1,0 +1,12 @@
+{
+  "query": "drupal",
+  "count": 42,
+  "unique_sources": 15,
+  "mapped": 40,
+  "unresolved": [
+    "drupal-canvas/skills/canvas-slots-for-repeatable-content",
+    "drupal-canvas/skills/canvas-component-naming"
+  ],
+  "canonical_count": 36,
+  "alias_count": 4
+}

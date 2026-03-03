@@ -1,0 +1,15 @@
+bethamil/agent-skills
+drupal-canvas/skills
+factorial-io/skills
+grasmash/drupal-claude-skills
+kanopi/cms-cultivator
+madsnorgaard/agent-resources
+madsnorgaard/drupal-agent-resources
+mindrally/skills
+neversight/learn-skills.dev
+omedia/drupal-skill
+ronaldtebrake/drupal-coding-standards-skill
+scottfalconer/drupal-contribute-fix
+scottfalconer/drupal-intent-testing
+scottfalconer/drupal-issue-queue
+sparkfabrik/sf-awesome-copilot

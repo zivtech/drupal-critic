@@ -18,6 +18,38 @@ It does **not** copy external SKILL.md content into this repository.
 Reference source of truth:
 - `.claude/skills/drupal-critic/references/external-skills-manifest.yaml`
 
+## Referenced External Skills
+
+The current referenced skills are:
+
+- `madsnorgaard/agent-resources/drupal-expert`
+- `madsnorgaard/agent-resources/drupal-security`
+- `bethamil/agent-skills/drupal-update`
+- `mindrally/skills/drupal-development`
+- `scottfalconer/drupal-issue-queue/drupal-issue-queue`
+- `scottfalconer/drupal-contribute-fix/drupal-contribute-fix`
+- `kanopi/cms-cultivator/drupalorg-issue-helper`
+- `kanopi/cms-cultivator/drupalorg-contribution-helper`
+- `sparkfabrik/sf-awesome-copilot/drupal-cache-contexts`
+- `sparkfabrik/sf-awesome-copilot/drupal-cache-tags`
+- `sparkfabrik/sf-awesome-copilot/drupal-cache-maxage`
+- `sparkfabrik/sf-awesome-copilot/drupal-dynamic-cache`
+- `sparkfabrik/sf-awesome-copilot/drupal-cache-debugging`
+- `sparkfabrik/sf-awesome-copilot/drupal-lazy-builders`
+- `drupal-canvas/skills/canvas-component-definition`
+- `drupal-canvas/skills/canvas-component-metadata`
+- `drupal-canvas/skills/canvas-component-utils`
+- `drupal-canvas/skills/canvas-data-fetching`
+- `drupal-canvas/skills/canvas-styling-conventions`
+- `drupal-canvas/skills/canvas-component-composability`
+- `drupal-canvas/skills/canvas-component-upload`
+- `grasmash/drupal-claude-skills/drupal-ddev`
+- `omedia/drupal-skill/drupal-tooling`
+- `madsnorgaard/drupal-agent-resources/ddev-expert`
+
+Update source:
+- `.claude/skills/drupal-critic/references/external-skills-manifest.yaml`
+
 ## Project Layout
 
 - `.claude/skills/drupal-critic/SKILL.md` - primary skill behavior

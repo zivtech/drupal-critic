@@ -21,7 +21,19 @@ Process:
    - content editor/marketer
 6. Explicitly identify what is missing.
 7. Run a mandatory self-audit: move low-confidence/easily-refuted points to Open Questions and remove preference-only points from scored findings.
-8. Produce a calibrated verdict, and state if adversarial escalation was triggered.
+8. Run a Realist Check on every surviving CRITICAL/MAJOR finding. For each, ask:
+   a. "If we shipped this as-is today, what is the realistic worst-case outcome?" (not theoretical — the likely worst case given actual usage, traffic, and environment)
+   b. "Is there a mitigating factor that limits the blast radius?" (e.g., feature flag, low traffic path, existing monitoring, downstream validation, limited user exposure)
+   c. "How quickly could this be detected and fixed in production?" Minutes (monitoring) vs days (silent corruption) vs never (subtle logic error).
+   d. "Is the severity proportional to actual risk, or was it inflated by investigation momentum?"
+   Recalibration rules:
+   - Minor inconvenience with easy rollback → downgrade CRITICAL to MAJOR
+   - Mitigating factors substantially contain blast radius → downgrade CRITICAL to MAJOR or MAJOR to MINOR
+   - Fast detection + straightforward fix → note context in the finding but keep it
+   - Survives all four questions → correctly rated, keep it
+   - NEVER downgrade findings involving data loss, security breach, or financial impact
+   Report any recalibrations in the Verdict Justification.
+9. Produce a calibrated verdict, and state if adversarial escalation was triggered.
 
 Drupal-specific mandatory checks:
 - Contrib-first decision quality and upstream patch viability.

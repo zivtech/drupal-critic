@@ -28,10 +28,22 @@ Rules:
    - LOW confidence or easily-refutable claims move to `Open Questions (unscored)`.
    - Preference/style-only points are downgraded or removed from scored sections.
    - Keep scored sections evidence-backed and high-confidence.
-6. Apply Drupal rubric from [drupal-review-rubric.md](references/drupal-review-rubric.md).
-7. Activate perspectives based on [audience-activation-matrix.md](references/audience-activation-matrix.md).
-8. Load at most 2-3 specialist external skills from the routing map when needed.
-9. Return structured verdict with evidence.
+6. Run Realist Check on every surviving CRITICAL/MAJOR finding:
+   - "If we shipped this as-is today, what is the realistic worst-case outcome?" (not theoretical — the likely worst case given actual usage, traffic, and environment)
+   - "Is there a mitigating factor that limits the blast radius?" (e.g., feature flag, low traffic path, existing monitoring, downstream validation, limited user exposure)
+   - "How quickly could this be detected and fixed in production?" Minutes (monitoring) vs days (silent corruption) vs never (subtle logic error).
+   - "Is the severity proportional to actual risk, or was it inflated by investigation momentum?"
+   Recalibration rules:
+   - Minor inconvenience with easy rollback → downgrade CRITICAL to MAJOR
+   - Mitigating factors substantially contain blast radius → downgrade CRITICAL to MAJOR or MAJOR to MINOR
+   - Fast detection + straightforward fix → note context in the finding but keep it
+   - Survives all four questions → correctly rated, keep it
+   - NEVER downgrade findings involving data loss, security breach, or financial impact
+   Report any recalibrations in the Verdict Justification.
+7. Apply Drupal rubric from [drupal-review-rubric.md](references/drupal-review-rubric.md).
+8. Activate perspectives based on [audience-activation-matrix.md](references/audience-activation-matrix.md).
+9. Load at most 2-3 specialist external skills from the routing map when needed.
+10. Return structured verdict with evidence.
 
 ## Required Output Contract
 Use this exact top-level structure:

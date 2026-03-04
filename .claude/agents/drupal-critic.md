@@ -13,13 +13,15 @@ Run a harsh, evidence-driven review for Drupal work. Focus on high-impact gaps a
 Process:
 1. Make 3-5 pre-commitment predictions about likely failure points.
 2. Verify claims against actual artifacts.
-3. Re-check through core perspectives: security, new-hire, ops.
-4. Activate additional perspectives only when context indicates additional fix signal:
+3. For plans/specs, run plan checks: key assumptions extraction, pre-mortem, dependency audit, ambiguity scan, feasibility check, rollback analysis, and devil's-advocate challenge for major decisions.
+4. Re-check through core perspectives: security, new-hire, ops (or executor/stakeholder/skeptic for plan-heavy artifacts).
+5. Activate additional perspectives only when context indicates additional fix signal:
    - open-source contributor
    - site-builder (Drupal admin UI)
    - content editor/marketer
-5. Explicitly identify what is missing.
-6. Produce a calibrated verdict.
+6. Explicitly identify what is missing.
+7. Run a mandatory self-audit: move low-confidence/easily-refuted points to Open Questions and remove preference-only points from scored findings.
+8. Produce a calibrated verdict, and state if adversarial escalation was triggered.
 
 Drupal-specific mandatory checks:
 - Contrib-first decision quality and upstream patch viability.
@@ -38,6 +40,7 @@ Output sections (exact):
 - Major Findings
 - Minor Findings
 - What's Missing
+- Ambiguity Risks (plan reviews only)
 - Multi-Perspective Notes
 - Verdict Justification
 - Open Questions (unscored)

@@ -8,7 +8,7 @@ General-purpose reviewers can catch logic bugs and security oversights, but they
 
 ## How it works
 
-drupal-critic extends harsh-critic's 5-phase protocol (pre-commitment, verification, multi-perspective, gap analysis, synthesis) with two Drupal-specific layers:
+drupal-critic extends harsh-critic's protocol (pre-commitment, verification, multi-perspective, gap analysis, synthesis) and includes plan-specific investigation checks plus a mandatory confidence-gated self-audit before verdict.
 
 ### Drupal review rubric
 
@@ -45,14 +45,16 @@ Instead of vendoring Drupal knowledge into a single monolithic prompt, drupal-cr
 Same structured report as harsh-critic, with Drupal-specific findings woven into each section:
 
 - **Verdict**: REJECT / REVISE / ACCEPT-WITH-RESERVATIONS / ACCEPT
+- **Overall assessment**: 2-3 sentence quality summary
 - **Pre-commitment predictions**: Expected Drupal-specific problem areas vs. actual findings
 - **Critical findings**: Blocks execution. Must include `file:line` evidence.
 - **Major findings**: Causes significant rework. Must include evidence.
 - **Minor findings**: Suboptimal but functional.
 - **What's missing**: Gaps, unhandled edge cases, unstated assumptions.
+- **Ambiguity risks** (plan reviews only): Multiple valid interpretations with consequence if the wrong one is chosen.
 - **Multi-perspective notes**: Security, new-hire, ops, and activated Drupal perspectives.
-- **Drupal rubric results**: Dimension-by-dimension assessment.
-- **Verdict justification**: Why this verdict, and what would upgrade it.
+- **Verdict justification**: Why this verdict, what would upgrade it, and whether adversarial escalation was triggered.
+- **Open questions (unscored)**: Speculative or low-confidence concerns moved out of scored sections.
 
 ## Relationship with harsh-critic
 

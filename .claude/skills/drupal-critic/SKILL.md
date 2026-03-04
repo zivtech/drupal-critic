@@ -21,11 +21,17 @@ Rules:
 
 ## Workflow
 1. Confirm review target and scope.
-2. Run harsh-critic protocol: pre-commitment, verification, multi-perspective analysis, gap analysis, synthesis.
-3. Apply Drupal rubric from [drupal-review-rubric.md](references/drupal-review-rubric.md).
-4. Activate perspectives based on [audience-activation-matrix.md](references/audience-activation-matrix.md).
-5. Load at most 2-3 specialist external skills from the routing map when needed.
-6. Return structured verdict with evidence.
+2. Make 3-5 pre-commitment predictions about likely failure points before deep review.
+3. Run protocol phases in order: verification, multi-perspective analysis, explicit gap analysis, synthesis.
+4. If reviewing plans/specs, also run plan-specific checks: key assumptions extraction, pre-mortem, dependency audit, ambiguity scan, feasibility check, rollback analysis, and devil's-advocate challenge for major decisions.
+5. Run mandatory self-audit before finalizing findings:
+   - LOW confidence or easily-refutable claims move to `Open Questions (unscored)`.
+   - Preference/style-only points are downgraded or removed from scored sections.
+   - Keep scored sections evidence-backed and high-confidence.
+6. Apply Drupal rubric from [drupal-review-rubric.md](references/drupal-review-rubric.md).
+7. Activate perspectives based on [audience-activation-matrix.md](references/audience-activation-matrix.md).
+8. Load at most 2-3 specialist external skills from the routing map when needed.
+9. Return structured verdict with evidence.
 
 ## Required Output Contract
 Use this exact top-level structure:
@@ -36,6 +42,7 @@ Use this exact top-level structure:
 - `Major Findings`
 - `Minor Findings`
 - `What's Missing`
+- `Ambiguity Risks` (plan reviews only)
 - `Multi-Perspective Notes`
 - `Verdict Justification`
 - `Open Questions (unscored)`
@@ -44,6 +51,7 @@ Rules:
 - CRITICAL and MAJOR findings must include concrete evidence (`file:line` or backtick-quoted artifact reference).
 - If a section has no items, write `None.`
 - Keep speculative points in `Open Questions` only.
+- In `Verdict Justification`, state whether escalation to adversarial review happened and why.
 
 ## Perspectives
 Always run:

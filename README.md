@@ -8,7 +8,7 @@ General-purpose reviewers can catch logic bugs and security oversights, but they
 
 ## How it works
 
-drupal-critic extends harsh-critic's protocol (pre-commitment, verification, multi-perspective, gap analysis, synthesis) and includes plan-specific investigation checks plus a mandatory confidence-gated self-audit before verdict.
+drupal-critic extends harsh-critic's protocol (pre-commitment, verification, multi-perspective, gap analysis, self-audit, realist check, synthesis) and includes plan-specific investigation checks, a mandatory confidence-gated self-audit before verdict, and a Realist Check that pressure-tests CRITICAL/MAJOR findings for real-world severity — downgrading when impact doesn't match the label while never downgrading data loss, security breaches, or financial impact.
 
 ### Drupal review rubric
 

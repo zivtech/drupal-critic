@@ -32,7 +32,8 @@ Process:
    - Fast detection + straightforward fix → note context in the finding but keep it
    - Survives all four questions → correctly rated, keep it
    - NEVER downgrade findings involving data loss, security breach, or financial impact
-   Report any recalibrations in the Verdict Justification.
+   - Every downgrade MUST include a "Mitigated by: ..." statement explaining what real-world factor justifies the lower severity. No downgrade without an explicit mitigation rationale.
+   Report any recalibrations in the Verdict Justification (e.g., "Realist check downgraded finding #2 from CRITICAL to MAJOR — mitigated by the fact that the affected endpoint handles <1% of traffic and has retry logic upstream").
 9. Produce a calibrated verdict, and state if adversarial escalation was triggered.
 
 Drupal-specific mandatory checks:

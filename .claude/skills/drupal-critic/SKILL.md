@@ -33,6 +33,25 @@ Rules:
    - "Is there a mitigating factor that limits the blast radius?" (e.g., feature flag, low traffic path, existing monitoring, downstream validation, limited user exposure)
    - "How quickly could this be detected and fixed in production?" Minutes (monitoring) vs days (silent corruption) vs never (subtle logic error).
    - "Is the severity proportional to actual risk, or was it inflated by investigation momentum?"
+
+   SECURITY EXPLOITABILITY GATE (mandatory for all security-related findings):
+   - "Who can trigger this? What privilege level is required to reach this code path?"
+   - "Can a non-privileged user actually exploit this, or does it require admin/superuser access?"
+   - "Does the existing access control model already make this moot?"
+
+   Drupal privilege model awareness:
+   - Drupal administrators can already execute arbitrary PHP, inject code via UI, and modify all site configuration. Flagging admin-only surfaces as security vulnerabilities is a false positive unless the issue allows non-admins to bypass access controls.
+   - `settings.php` is only accessible to users with server/code access (effectively site admins/developers). Issues in settings.php are configuration concerns, not security vulnerabilities.
+   - Admin screens (`/admin/*`) are not security risks unless they enable: privilege escalation to non-admins, CSRF that tricks admins into unintended destructive actions, or stored XSS that persists beyond the admin session and affects non-admin users.
+   - Focus security findings on: anonymous access, authenticated non-admin access, and privilege escalation paths.
+
+   If you cannot demonstrate a concrete exploit path accessible to non-admin/non-privileged users:
+   - Tag the finding as `[UNCONFIRMED]` and move it to Open Questions
+   - Add the note: "Security finding unconfirmed — no demonstrated exploit path for non-privileged users."
+   - Do NOT leave unconfirmed security findings in scored sections
+
+   A theoretical vulnerability that requires admin access in Drupal — where admins already have full control — is not a finding. It is manufactured alarmism that damages review credibility.
+
    Recalibration rules:
    - Minor inconvenience with easy rollback → downgrade CRITICAL to MAJOR
    - Mitigating factors substantially contain blast radius → downgrade CRITICAL to MAJOR or MAJOR to MINOR
@@ -82,8 +101,8 @@ Perspective notes must appear in `Multi-Perspective Notes`.
 ## Drupal-Specific Must-Check List
 Always check these before final verdict:
 - Contrib-first decision quality: should this be upstream patch/work instead of custom code?
-- Access and trust boundaries: routes, entity queries, permissions, token checks.
-- Render safety: `#markup`, Twig raw output, sanitization path.
+- Access and trust boundaries: routes, entity queries, permissions, token checks — but always verify the exploit path is reachable by non-admins. Admins already own the site; only flag admin-surface issues if they enable privilege escalation, CSRF, or stored XSS affecting non-admin users.
+- Render safety: `#markup`, Twig raw output, sanitization path — focus on anonymous and authenticated non-admin paths. Admin-only XSS is low-priority unless it persists to non-admin contexts.
 - Cache correctness: tags/contexts/max-age and BigPipe/Dynamic Page Cache implications.
 - Config workflow safety: `drush cex/cim`, environment drift and import risk.
 - Update/deploy safety: composer constraint risk, DB updates, rollback/snapshot path.

@@ -53,6 +53,35 @@ Process:
    - NEVER downgrade findings involving data loss, security breach, or financial impact
    - Every downgrade MUST include a "Mitigated by: ..." statement explaining what real-world factor justifies the lower severity. No downgrade without an explicit mitigation rationale.
    Report any recalibrations in the Verdict Justification (e.g., "Realist check downgraded finding #2 from CRITICAL to MAJOR — mitigated by the fact that the affected endpoint handles <1% of traffic and has retry logic upstream").
+
+   <Severity_Scale>
+   - CRITICAL: Security vulnerability exploitable by non-admin users, data loss, or site-breaking bug. Architectural fix required.
+   - MAJOR: Significant functionality or security issue requiring design-level changes. Exploitable only by authenticated/admin users, or causes significant UX degradation.
+   - MINOR: Suboptimal but functional. Better Drupal patterns exist but current approach works.
+   - ENHANCEMENT: Best practice not followed but no functional or security impact.
+   </Severity_Scale>
+
+   <Severity_Calibration_Examples>
+   Example 1 — Downgrade:
+     Initial: CRITICAL — "SQL injection in custom query"
+     After Realist Check: MAJOR
+     Mitigated by: Query is behind `administer site configuration` permission. Only trusted admin users can reach this code path.
+     Evidence: `mymodule.routing.yml` — route requires `_permission: 'administer site configuration'`.
+     Rationale: Per Drupal's security model, admin-only vulnerabilities are MAJOR, not CRITICAL. Admins already have full system access.
+
+   Example 2 — Upgrade:
+     Initial: MINOR — "Custom form doesn't use Form API validation"
+     After Realist Check: MAJOR
+     Evidence: Form accepts user-uploaded filenames used in `file_save_data()` without sanitization. Path traversal possible via crafted filename.
+     Rationale: Form API validation would have caught this. Bypassing Form API removed the safety net, creating an exploitable file write vulnerability for authenticated users.
+
+   Example 3 — Holds:
+     Initial: CRITICAL — "Access bypass: custom route lacks permission check"
+     After Realist Check: Still CRITICAL
+     Evidence: `mymodule.routing.yml` — route uses `_access: 'TRUE'` (allows anonymous access). Controller returns user PII from `{user}` parameter without access check.
+     Rationale: Anonymous users can enumerate and view any user's profile data. No compensating control (no rate limiting, no field-level access check).
+   </Severity_Calibration_Examples>
+
 9. Produce a calibrated verdict, and state if adversarial escalation was triggered.
 
 Drupal-specific mandatory checks:

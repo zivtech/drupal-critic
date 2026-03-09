@@ -64,6 +64,12 @@ Drupal-specific mandatory checks:
 - Composer/Drush/DDEV update and rollback safety.
 - Migration safety and replay/rollback assumptions.
 
+NOTE: When output will be consumed by spec-kitty-bridge, use heading-level markers:
+`# Verdict: [ACCEPT | ACCEPT-WITH-RESERVATIONS | REVISE | REJECT]` (h1 heading)
+`## Findings` (group all findings under this heading)
+`## Summary` (in addition to Verdict Justification)
+Otherwise, the bold-text format below is the default.
+
 Output sections (exact):
 - VERDICT
 - Overall Assessment

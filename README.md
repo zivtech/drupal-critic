@@ -76,11 +76,44 @@ For Drupal-heavy changes, run drupal-critic first. Optionally follow with harsh-
 
 drupal-critic coordinates 24 external skills across 6 categories, pinned to specific commits for reproducibility:
 
-**Core Review** — `drupal-expert`, `drupal-security`, `drupal-update`, `drupal-development`
-**Contrib & Issue Queue** — `drupal-issue-queue`, `drupal-contribute-fix`, `drupalorg-issue-helper`, `drupalorg-contribution-helper`
-**Cache & Rendering** — `drupal-cache-contexts`, `drupal-cache-tags`, `drupal-cache-maxage`, `drupal-dynamic-cache`, `drupal-cache-debugging`, `drupal-lazy-builders`
-**Canvas/Components** — `canvas-component-definition`, `canvas-component-metadata`, `canvas-component-utils`, `canvas-data-fetching`, `canvas-styling-conventions`, `canvas-component-composability`, `canvas-component-upload`
-**Tooling** — `drupal-ddev`, `drupal-tooling`, `ddev-expert`
+### Core Review
+
+- [**drupal-expert**](https://github.com/madsnorgaard/agent-resources) by madsnorgaard — Drupal 10/11 development expertise covering modules, themes, hooks, services, configuration, and migrations. Enforces contrib-first research and dependency injection.
+- [**drupal-security**](https://github.com/madsnorgaard/agent-resources) by madsnorgaard — Proactively identifies security vulnerabilities (XSS, SQL injection, access bypass) while Drupal code is being written, not after.
+- [**drupal-update**](https://github.com/bethamil/agent-skills) by bethamil — Automates Drupal module updates in DDEV environments with safety snapshots, composer update, drush updb, config export, and changelog generation.
+- [**drupal-development**](https://github.com/mindrally/skills) by mindrally — Drupal development guidelines and best practices, part of a 240+ skill collection converted from Cursor rules.
+
+### Contrib & Issue Queue
+
+- [**drupal-issue-queue**](https://github.com/scottfalconer/drupal-issue-queue) by scottfalconer — Searches Drupal.org issue queues and summarizes individual issues for triage using drupalorg-cli and the Drupal.org API.
+- [**drupal-contribute-fix**](https://github.com/scottfalconer/drupal-contribute-fix) by scottfalconer — Searches Drupal.org before writing code changes to contrib/core, then packages contribution-ready artifacts (diffs, issue comments, reports).
+- [**drupalorg-issue-helper**](https://github.com/kanopi/cms-cultivator) by Kanopi Studios — Helps write Drupal.org issue reports with proper HTML templates, formatting, and best practices for bug reports and feature requests.
+- [**drupalorg-contribution-helper**](https://github.com/kanopi/cms-cultivator) by Kanopi Studios — Guides Drupal.org contribution workflows including git commands, issue fork setup, branch naming, and merge request creation.
+
+### Cache & Rendering
+
+- [**drupal-cache-contexts**](https://github.com/sparkfabrik/sf-awesome-copilot) by SparkFabrik — Cache context selection and usage patterns for request-dependent content variations.
+- [**drupal-cache-tags**](https://github.com/sparkfabrik/sf-awesome-copilot) by SparkFabrik — Cache tag assignment and invalidation patterns for Drupal's data-dependent cache layer.
+- [**drupal-cache-maxage**](https://github.com/sparkfabrik/sf-awesome-copilot) by SparkFabrik — Time-based cache expiration configuration and max-age propagation in Drupal's render pipeline.
+- [**drupal-dynamic-cache**](https://github.com/sparkfabrik/sf-awesome-copilot) by SparkFabrik — Dynamic page cache behavior, auto-placeholdering, and per-user content handling.
+- [**drupal-cache-debugging**](https://github.com/sparkfabrik/sf-awesome-copilot) by SparkFabrik — Techniques for diagnosing cache misses, stale content, and incorrect cache metadata.
+- [**drupal-lazy-builders**](https://github.com/sparkfabrik/sf-awesome-copilot) by SparkFabrik — Lazy builder pattern for deferring render-heavy or uncacheable content out of the main response.
+
+### Canvas/Components
+
+- [**canvas-component-definition**](https://github.com/drupal-canvas/skills) by Drupal Canvas — Defining Canvas Code Components for Drupal's visual page builder.
+- [**canvas-component-metadata**](https://github.com/drupal-canvas/skills) by Drupal Canvas — Component metadata schemas and prop definitions for Canvas components.
+- [**canvas-component-utils**](https://github.com/drupal-canvas/skills) by Drupal Canvas — Utility functions and helpers for Canvas component development.
+- [**canvas-data-fetching**](https://github.com/drupal-canvas/skills) by Drupal Canvas — Data fetching patterns for server-side and client-side data in Canvas components.
+- [**canvas-styling-conventions**](https://github.com/drupal-canvas/skills) by Drupal Canvas — CSS and styling conventions for Canvas Code Components.
+- [**canvas-component-composability**](https://github.com/drupal-canvas/skills) by Drupal Canvas — Patterns for nesting and composing Canvas components together.
+- [**canvas-component-upload**](https://github.com/drupal-canvas/skills) by Drupal Canvas — Packaging and uploading Canvas components to a Drupal site.
+
+### Tooling
+
+- [**drupal-ddev**](https://github.com/grasmash/drupal-claude-skills) by grasmash — DDEV local development patterns for Drupal including configuration, database management, Xdebug, and performance optimization.
+- [**drupal-tooling**](https://github.com/omedia/drupal-skill) by Omedia — Drupal development tooling for DDEV environments and Drush command-line operations across Drupal 8–11+.
+- [**ddev-expert**](https://github.com/madsnorgaard/drupal-agent-resources) by madsnorgaard — DDEV expertise covering Docker-based local development, project management, custom services, and CI/CD integration.
 
 Full manifest with pinned commits, URLs, and metadata:
 `.claude/skills/drupal-critic/references/external-skills-manifest.yaml`

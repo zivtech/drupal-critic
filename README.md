@@ -44,6 +44,25 @@ Instead of vendoring Drupal knowledge into a single monolithic prompt, drupal-cr
 
 ### Architecture overview
 
+```
+.claude/skills/drupal-critic/
+├── SKILL.md                          # Review protocol, output contract, routing rules
+├── references/
+│   ├── external-skills-manifest.yaml # 24 external skills with pinned commits (source of truth)
+│   ├── drupal-review-rubric.md       # 9-dimension review checklist
+│   ├── audience-activation-matrix.md # Which perspectives activate for which content
+│   └── skill-routing-map.md          # How to select max 2-3 external skills per review run
+└── agents/
+    └── openai.yaml                   # OpenAI interface metadata
+
+.claude/agents/
+└── drupal-critic.md                  # Read-only agent prompt (disallows Write/Edit)
+
+scripts/
+├── refresh_external_skills.py        # Manifest pin updater
+└── verify_no_copied_skills.py        # Policy enforcement
+```
+
 ```mermaid
 graph TB
     subgraph "Entry Points"

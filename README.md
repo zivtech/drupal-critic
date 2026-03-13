@@ -42,6 +42,67 @@ Three more activate based on what's being reviewed:
 
 Instead of vendoring Drupal knowledge into a single monolithic prompt, drupal-critic references 24 external specialist skills by ID with pinned commit SHAs. Each review run loads max 2-3 relevant skills selected via a routing map — keeping context focused and up-to-date with upstream improvements.
 
+### Architecture overview
+
+```mermaid
+graph TB
+    subgraph "Entry Points"
+        SKILL["/drupal-critic<br/>slash command"]
+        AGENT["drupal-critic agent<br/>(read-only, Opus)"]
+    end
+
+    subgraph "Review Engine"
+        RUBRIC["Review Rubric<br/>9 dimensions"]
+        ACTIVATION["Audience Activation Matrix<br/>context-driven perspectives"]
+        ROUTING["Skill Routing Map<br/>select 2-3 per run"]
+    end
+
+    subgraph "External Skills"
+        MANIFEST["External Skills Manifest<br/>24 skills, pinned commits"]
+        UPSTREAM["Upstream Repos<br/>(madsnorgaard, sparkfabrik,<br/>kanopi, scottfalconer, etc.)"]
+    end
+
+    subgraph "Validation"
+        REFRESH["refresh_external_skills.py"]
+        VERIFY["verify_no_copied_skills.py"]
+    end
+
+    AGENT -.->|"delegates to"| SKILL
+    SKILL --> RUBRIC
+    SKILL --> ACTIVATION
+    SKILL --> ROUTING
+    ROUTING -->|"loads by ID"| MANIFEST
+    MANIFEST -.->|"pinned SHAs"| UPSTREAM
+    REFRESH -->|"updates pins"| MANIFEST
+    VERIFY -->|"enforces no-copy"| MANIFEST
+```
+
+<details>
+<summary>Review sequence (runtime flow)</summary>
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant S as SKILL.md
+    participant A as Audience Matrix
+    participant R as Routing Map
+    participant M as Manifest
+    participant E as External Skills
+
+    U->>S: /drupal-critic [target]
+    S->>S: Run 9-dimension rubric checks
+    S->>A: Detect content type
+    A-->>S: Activate matching perspectives
+    S->>R: Select specialists for context
+    R->>M: Look up skill IDs + pinned commits
+    M->>E: Load 2-3 external skills
+    E-->>S: Domain expertise
+    S->>S: Self-audit + Realist Check
+    S-->>U: Structured verdict report
+```
+
+</details>
+
 ## Output format
 
 Same structured report as harsh-critic, with Drupal-specific findings woven into each section:

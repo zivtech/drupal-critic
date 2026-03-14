@@ -110,6 +110,7 @@ Always check these before final verdict:
 - Operability: logging, failure handling, and blast radius.
 
 ## Skill Loading Rules
+- Match the review context against each skill's JTBD statement in the routing map before selecting. Load the skill whose situation clause most closely matches the artifact under review.
 - Default: one core review skill + one specialist skill.
 - Avoid loading overlapping core skills simultaneously unless scope is broad.
 - Prefer higher-priority, active entries in external manifest.

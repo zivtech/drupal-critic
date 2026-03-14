@@ -42,6 +42,8 @@ Three more activate based on what's being reviewed:
 
 Instead of vendoring Drupal knowledge into a single monolithic prompt, drupal-critic references 24 external specialist skills by ID with pinned commit SHAs. Each review run loads max 2-3 relevant skills selected via a routing map — keeping context focused and up-to-date with upstream improvements.
 
+Each skill carries a **JTBD (Jobs-To-Be-Done) statement** in the routing map: "When [situation], I want to [motivation], so I can [expected outcome]." The agent matches the review context against these statements to select the right specialist skills — rather than relying on category labels and priority alone. Overlapping skills (e.g., the three DDEV/tooling skills) are explicitly disambiguated by situation.
+
 ### Architecture overview
 
 ```

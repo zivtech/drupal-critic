@@ -51,7 +51,8 @@ scripts/
 ### Key Design Decisions
 
 - **No-copy policy**: External skills are referenced by ID, `skills_url`, `repo_url`, and `pinned_commit` SHA. Never copy SKILL.md content from external repos into this repository.
-- **Orchestration pattern**: drupal-critic loads max 2-3 external specialist skills per review run, selected via the routing map based on review context.
+- **Orchestration pattern**: drupal-critic loads max 2-3 external specialist skills per review run, selected via the routing map based on review context. Each skill has a JTBD (Jobs-To-Be-Done) statement that agents match against the review context before selecting.
+- **Tooling disambiguation**: `drupal-ddev` for project setup/config, `drupal-tooling` for CLI/Drush/Composer operations, `ddev-expert` for troubleshooting/custom services/CI.
 - **Audience model**: Three perspectives always run (Security, New-hire, Ops). Three more activate based on context (Open Source Contributor, Site Builder, Content Editor/Marketer).
 - **Evidence requirement**: All CRITICAL/MAJOR findings must include file:line or artifact references.
 

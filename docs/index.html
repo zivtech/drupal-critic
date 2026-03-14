@@ -945,7 +945,16 @@
     <!-- S4: ROUTING RULES -->
     <div id="s4" class="sec-head anim" style="--i:23"><span class="dot" style="background:var(--drupal-blue)"></span> Routing Rules</div>
 
-    <div class="routing-rules anim" style="--i:24">
+    <div class="callout anim" style="--i:24;border-left-color:var(--drupal-blue)">
+      Each skill carries a <strong>JTBD (Jobs-To-Be-Done) statement</strong>: &ldquo;When [situation], I want to [motivation], so I can [expected outcome].&rdquo; The agent matches the review context against these statements to select the right specialist &mdash; rather than relying on category labels and priority alone. Overlapping skills (e.g., three DDEV/tooling skills) are explicitly disambiguated by situation.
+    </div>
+
+    <div class="routing-rules anim" style="--i:25">
+      <div class="rule-card">
+        <div class="rule-num">JTBD</div>
+        <div class="rule-label">Situation Match</div>
+        <div class="rule-desc">Match review context against each skill&rsquo;s JTBD statement. Load the skill whose situation clause fits the artifact under review.</div>
+      </div>
       <div class="rule-card">
         <div class="rule-num">2&ndash;3</div>
         <div class="rule-label">Max Skills Per Run</div>

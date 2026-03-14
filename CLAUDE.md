@@ -67,11 +67,18 @@ Categories: core-review, security, operations, contrib, cache, canvas, tooling.
 
 `verify_no_copied_skills.py` checks:
 1. Manifest field integrity (valid URLs, 40-char SHAs, valid status values)
-2. No suspicious copied content markers in SKILL.md
-3. All manifest skill IDs referenced in local markdown docs
-4. No forbidden tracked paths under `research/drupal-skills/upstream/` or `extracted/`
+2. Org allowlist — repo owners must be in `TRUSTED_OWNERS` (Tier 1 supply chain)
+3. No suspicious copied content markers in SKILL.md
+4. All manifest skill IDs referenced in local markdown docs
+5. No forbidden tracked paths under `research/drupal-skills/upstream/` or `extracted/`
 
-`refresh_external_skills.py` fetches current HEAD SHA from each upstream GitHub repo via `git ls-remote` and updates `pinned_commit` values in the manifest.
+`refresh_external_skills.py`:
+1. Fetches current HEAD SHA from each upstream GitHub repo via `git ls-remote`
+2. Generates GitHub compare URLs for changed pins (clickable diff review)
+3. Fetches SKILL.md at new commit and scans for 10 prompt injection patterns
+4. Blocks manifest update if scan warnings found (exit code 2, `--no-scan` to override)
+5. Computes SHA-256 content hashes and stores as `content_hash` in manifest (Tier 2)
+6. Appends pin changes to `research/drupal-skills/reports/refresh-audit.log` (Tier 2)
 
 ## Supply Chain Security for External Skills
 

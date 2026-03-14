@@ -654,6 +654,7 @@
     <a href="#s7">Output Contract</a>
     <a href="#s8">Severity + Realist Check</a>
     <a href="#s9">No-Copy Policy</a>
+    <a href="#s10">Supply Chain Security</a>
   </nav>
 
   <div class="main">
@@ -1149,8 +1150,54 @@
       </div>
     </div>
 
+    <!-- S10: SUPPLY CHAIN SECURITY -->
+    <div id="s10" class="sec-head anim" style="--i:37"><span class="dot" style="background:var(--security)"></span> Supply Chain Security</div>
+
+    <div class="ve-card anim" style="--i:38">
+      <p>External skills are prompt text injected into Claude&rsquo;s context. A compromised upstream repo could slip in prompt injection &mdash; instruction overrides, identity reassignment, data exfiltration directives. drupal-critic implements two tiers of supply chain protection.</p>
+
+      <h4 style="margin-top:1.2em;margin-bottom:0.6em;color:var(--security)">Tier 1: Implemented</h4>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="step-title">Org Allowlist</div>
+          <div class="step-desc"><code>verify_no_copied_skills.py</code> rejects any manifest entry whose repo owner is not in the <code>TRUSTED_OWNERS</code> allowlist. New sources require explicit vetting.</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-title">Compare URLs</div>
+          <div class="step-desc"><code>refresh_external_skills.py</code> generates GitHub compare links for every changed pin &mdash; clickable diff review before committing.</div>
+        </div>
+        <div class="flow-step flow-step--highlight">
+          <div class="step-title">Content Scanning</div>
+          <div class="step-desc">Each changed skill&rsquo;s SKILL.md is fetched and scanned for 10 prompt injection patterns: instruction overrides, identity reassignment, base64 payloads, eval calls, fake system tags, HTML injection.</div>
+        </div>
+        <div class="flow-step flow-step--highlight">
+          <div class="step-title">Scan Gate</div>
+          <div class="step-desc">If any warnings are found, the manifest is <strong>not updated</strong> (exit code 2). Human review required. Re-run with <code>--no-scan</code> to force after review.</div>
+        </div>
+      </div>
+
+      <h4 style="margin-top:1.2em;margin-bottom:0.6em;color:var(--ops)">Tier 2: Implemented</h4>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="step-title">Content Hashes</div>
+          <div class="step-desc">SHA-256 of each SKILL.md stored as <code>content_hash</code> in the manifest. Detects unexpected content changes at the same commit.</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-title">Audit Log</div>
+          <div class="step-desc">Every pin change appended to <code>refresh-audit.log</code> with timestamp, old/new SHAs, and content hash. Tamper-evident history of all manifest changes.</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-title">Tool Restriction</div>
+          <div class="step-desc">The drupal-critic agent runs with <code>disallowedTools: Write, Edit</code>. It reviews but cannot modify files &mdash; limiting damage from a compromised agent prompt.</div>
+        </div>
+      </div>
+
+      <h4 style="margin-top:1.2em;margin-bottom:0.6em;color:var(--text-dim)">Tier 3: Still Open</h4>
+      <p style="color:var(--text-dim);font-size:13px">Pre-commit hook for agent prompt scanning &bull; Per-skill scan allowlist for known false positives &bull; Signed commit enforcement on upstream repos</p>
+    </div>
+
     <!-- FOOTER -->
-    <div class="page-footer anim" style="--i:37">
+    <div class="page-footer anim" style="--i:39">
       <a href="https://github.com/zivtech/drupal-critic">drupal-critic</a> by <a href="https://www.zivtech.com">Zivtech</a>
       &nbsp;&middot;&nbsp; Companion to <a href="https://github.com/zivtech/harsh-critic">harsh-critic</a>
       &nbsp;&middot;&nbsp; Built for <a href="https://claude.ai/code">Claude Code</a>

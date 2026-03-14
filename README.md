@@ -259,12 +259,29 @@ Refresh external skill pinned commits:
 python3 scripts/refresh_external_skills.py
 ```
 
-Verify no-copy policy and manifest integrity:
+This fetches HEAD from each upstream repo, scans changed SKILL.md files for prompt injection patterns, and generates a report with clickable GitHub compare URLs. If scan warnings are found, the manifest is **not updated** until you review and re-run with `--no-scan`.
+
+Check if pins are stale (CI mode):
+```bash
+python3 scripts/refresh_external_skills.py --check
+```
+
+Verify no-copy policy, manifest integrity, and org allowlist:
 ```bash
 python3 scripts/verify_no_copied_skills.py
 ```
 
 Both scripts require PyYAML (`pip install pyyaml`). CI runs both on every push/PR.
+
+### Supply chain security
+
+External skills are prompt text injected into Claude's context — supply chain integrity matters. See the [visual explainer](https://zivtech.github.io/drupal-critic/) or `CLAUDE.md` for full details. Key protections:
+
+- **Org allowlist** — manifest entries from unknown GitHub owners are rejected
+- **Content scanning** — 10 prompt injection patterns checked on every refresh
+- **Scan gate** — manifest blocked from updating until warnings are reviewed
+- **Content hashes** — SHA-256 of each SKILL.md stored in manifest
+- **Audit log** — tamper-evident history at `research/drupal-skills/reports/refresh-audit.log`
 
 ## Compatibility
 

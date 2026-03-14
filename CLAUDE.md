@@ -73,21 +73,23 @@ Categories: core-review, security, operations, contrib, cache, canvas, tooling.
 
 `refresh_external_skills.py` fetches current HEAD SHA from each upstream GitHub repo via `git ls-remote` and updates `pinned_commit` values in the manifest.
 
-## TODO: Supply Chain Security for External Skills
+## Supply Chain Security for External Skills
 
-The external skills manifest pins upstream skills by commit SHA, but the current tooling has supply chain gaps that need to be addressed:
+The external skills manifest pins upstream skills by commit SHA. These skills are prompt text injected into Claude's context, so supply chain integrity matters.
 
-1. **No diff review on refresh** — `refresh_external_skills.py` updates pins to HEAD silently. No changelog or diff of what changed in upstream SKILL.md files between the old and new pin.
-2. **No content scanning** — nothing checks incoming skill content for suspicious patterns (prompt injection markers, instruction overrides, encoded payloads). These skills are prompt text injected into Claude's context.
-3. **No signature/author verification** — anyone with push access to an upstream repo can change what gets loaded.
-4. **No approval gate** — refresh runs and updates pins automatically with no PR/review step.
+### Implemented
 
-Minimum next steps:
-- Add diff output to `refresh_external_skills.py` so changes are visible before committing new pins.
-- Add basic content scanning rules (flag suspicious patterns like "ignore previous instructions", base64 blocks, etc.).
-- Consider requiring a PR for pin updates rather than committing directly.
+- **Compare URLs** — `refresh_external_skills.py` generates GitHub compare links for every changed pin so you can review upstream diffs before committing.
+- **Content scanning** — on refresh, each changed skill's SKILL.md is fetched and scanned for prompt injection patterns (instruction overrides, identity reassignment, base64 payloads, eval calls, fake system tags, HTML injection). Warnings block the manifest update until reviewed.
+- **Scan gate** — if any warnings are found, the manifest is NOT updated. Re-run with `--no-scan` to force update after human review.
 
-See also: react-critic has the same gaps and the same TODO.
+### Still open
+
+- **No signature/author verification** — anyone with push access to an upstream repo can change what gets loaded.
+- **No approval gate for CI** — consider requiring a PR for pin updates rather than committing directly.
+- **No allowlist for known false positives** — security-focused skills (drupal-security, drupal-expert) legitimately mention `eval()` and `<script>` as anti-patterns. A per-skill allowlist would reduce noise.
+
+See also: react-critic has the same architecture and needs the same fixes ported.
 
 ## Working With This Repo
 

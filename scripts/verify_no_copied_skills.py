@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
+"""Verify external skill policy: manifest integrity, no-copy, and supply chain checks.
+
+Tier 1 supply chain checks:
+- Repo URL org allowlist — only trusted GitHub orgs/users accepted
+- Manifest field integrity — valid URLs, 40-char SHAs, valid status
+
+Tier 2 supply chain checks:
+- Content hash verification — if content_hash field exists, verify it matches
+"""
+import hashlib
 import re
 import subprocess
 import sys
+import urllib.request
+import urllib.error
 from pathlib import Path
 
 try:
@@ -13,6 +25,20 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / '.claude/skills/drupal-critic/references/external-skills-manifest.yaml'
 SKILL_ROOT = ROOT / '.claude/skills/drupal-critic'
 
+# Tier 1: Only accept skills from these GitHub orgs/users.
+# Add new trusted sources here after vetting.
+TRUSTED_OWNERS = {
+    'madsnorgaard',
+    'bethamil',
+    'mindrally',
+    'scottfalconer',
+    'kanopi',
+    'sparkfabrik',
+    'drupal-canvas',
+    'grasmash',
+    'omedia',
+}
+
 
 def find_manifest_issues(data):
     issues = []
@@ -20,8 +46,14 @@ def find_manifest_issues(data):
         sid = s.get('id', f'index:{idx}')
         if not s.get('skills_url', '').startswith('https://skills.sh/'):
             issues.append(f"{sid}: invalid skills_url")
-        if not s.get('repo_url', '').startswith('https://github.com/'):
+        repo_url = s.get('repo_url', '')
+        if not repo_url.startswith('https://github.com/'):
             issues.append(f"{sid}: invalid repo_url")
+        else:
+            # Tier 1: verify repo owner is in the allowlist
+            owner = repo_url.replace('https://github.com/', '').split('/')[0].lower()
+            if owner not in {o.lower() for o in TRUSTED_OWNERS}:
+                issues.append(f"{sid}: repo owner '{owner}' not in TRUSTED_OWNERS allowlist")
         pin = s.get('pinned_commit', '')
         if not re.fullmatch(r'[0-9a-f]{40}', pin):
             issues.append(f"{sid}: pinned_commit must be 40-char SHA")

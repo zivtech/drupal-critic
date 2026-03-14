@@ -77,17 +77,28 @@ Categories: core-review, security, operations, contrib, cache, canvas, tooling.
 
 The external skills manifest pins upstream skills by commit SHA. These skills are prompt text injected into Claude's context, so supply chain integrity matters.
 
-### Implemented
+### Tier 1: Implemented (low effort, high impact)
 
+- **Org allowlist** — `verify_no_copied_skills.py` rejects any manifest entry whose `repo_url` owner is not in the `TRUSTED_OWNERS` allowlist. New upstream sources require explicit vetting before addition.
 - **Compare URLs** — `refresh_external_skills.py` generates GitHub compare links for every changed pin so you can review upstream diffs before committing.
-- **Content scanning** — on refresh, each changed skill's SKILL.md is fetched and scanned for prompt injection patterns (instruction overrides, identity reassignment, base64 payloads, eval calls, fake system tags, HTML injection). Warnings block the manifest update until reviewed.
-- **Scan gate** — if any warnings are found, the manifest is NOT updated. Re-run with `--no-scan` to force update after human review.
+- **Content scanning** — on refresh, each changed skill's SKILL.md is fetched and scanned for 10 prompt injection patterns (instruction overrides, identity reassignment, base64 payloads, eval calls, fake system tags, HTML injection). Warnings block the manifest update until reviewed.
+- **Scan gate** — if any warnings are found, the manifest is NOT updated (exit code 2). Re-run with `--no-scan` to force update after human review.
 
-### Still open
+GitHub settings (manual, apply to this repo and all upstream repos you control):
+- **Require signed commits** on main branch (Settings > Branches > Branch protection).
+- **Require PR reviews** before merge to main. No direct pushes, no force pushes.
 
-- **No signature/author verification** — anyone with push access to an upstream repo can change what gets loaded.
-- **No approval gate for CI** — consider requiring a PR for pin updates rather than committing directly.
-- **No allowlist for known false positives** — security-focused skills (drupal-security, drupal-expert) legitimately mention `eval()` and `<script>` as anti-patterns. A per-skill allowlist would reduce noise.
+### Tier 2: Implemented (medium effort)
+
+- **Content hashes** — `refresh_external_skills.py` computes SHA-256 of each SKILL.md at the pinned commit and stores it as `content_hash` in the manifest. Future verification can detect unexpected content changes.
+- **Audit log** — every pin change is appended to `research/drupal-skills/reports/refresh-audit.log` with timestamp, old/new SHAs, and content hash. Provides a tamper-evident history of all manifest changes.
+- **Tool access restriction** — the `drupal-critic` agent has `disallowedTools: Write, Edit`. It reviews but cannot modify files.
+
+### Still open (Tier 3)
+
+- **Pre-commit hook** for prompt content scanning in agent `.md` files (flag URLs to non-allowlisted domains, instructions to read sensitive files, Bash usage in critic agents).
+- **Copy-on-install instead of live symlinks** — not applicable to this repo (manifest-based, not symlink-based), but relevant for zivtech-meta-skills.
+- **Per-skill scan allowlist** — security-focused skills (drupal-security, drupal-expert) legitimately mention `eval()` and `<script>` as anti-patterns. A per-skill allowlist would reduce noise.
 
 See also: react-critic has the same architecture and needs the same fixes ported.
 

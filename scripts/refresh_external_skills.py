@@ -5,8 +5,11 @@ Supply chain safety features:
 - Compare URLs for every changed pin (review what changed upstream)
 - Content scanning for prompt injection patterns in fetched SKILL.md files
 - Scan warnings surfaced in report and on stdout
+- Content hashes (SHA-256) stored in manifest for integrity verification (Tier 2)
+- Audit log of all pin changes with timestamps (Tier 2)
 """
 import argparse
+import hashlib
 import re
 import subprocess
 import urllib.request
@@ -22,6 +25,7 @@ except Exception as exc:  # pragma: no cover
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / '.claude/skills/drupal-critic/references/external-skills-manifest.yaml'
 REPORT = ROOT / 'research/drupal-skills/reports/external-skills-refresh-report.md'
+AUDIT_LOG = ROOT / 'research/drupal-skills/reports/refresh-audit.log'
 
 # Patterns that should never appear in a legitimate skill file.
 # Each tuple: (compiled regex, human-readable description)
@@ -116,8 +120,9 @@ def main() -> int:
             changed.append({'id': s['id'], 'repo_url': repo, 'old': current, 'new': latest})
             s['pinned_commit'] = latest
 
-    # --- Content scanning ---
+    # --- Content scanning and hash computation ---
     scan_warnings = []
+    content_hashes = {}  # skill_id -> sha256 of SKILL.md at new commit
     if changed and not args.no_scan:
         print(f"Scanning {len(changed)} changed skills for suspicious content...")
         for entry in changed:
@@ -125,6 +130,7 @@ def main() -> int:
             if content:
                 warnings = scan_content(content, entry['id'])
                 scan_warnings.extend(warnings)
+                content_hashes[entry['id']] = hashlib.sha256(content.encode('utf-8')).hexdigest()
             else:
                 scan_warnings.append(f"  {entry['id']}: could not fetch SKILL.md (unable to locate)")
 
@@ -190,8 +196,29 @@ def main() -> int:
         print("Review warnings, then re-run with --no-scan to force update.")
         return 2
 
+    # --- Store content hashes in manifest entries ---
+    for s in skills:
+        if s['id'] in content_hashes:
+            s['content_hash'] = content_hashes[s['id']]
+
     data['generated_at'] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
     MANIFEST.write_text(yaml.safe_dump(data, sort_keys=False), encoding='utf-8')
+
+    # --- Audit log (Tier 2) ---
+    if changed:
+        AUDIT_LOG.parent.mkdir(parents=True, exist_ok=True)
+        ts = datetime.now(timezone.utc).isoformat()
+        log_lines = []
+        for entry in changed:
+            h = content_hashes.get(entry['id'], 'not-computed')
+            log_lines.append(
+                f"{ts}  {entry['id']}  {entry['old'][:12] or 'initial'}..{entry['new'][:12]}"
+                f"  content_hash={h[:16]}"
+            )
+        with open(AUDIT_LOG, 'a', encoding='utf-8') as f:
+            f.write('\n'.join(log_lines) + '\n')
+        print(f"Appended {len(changed)} entries to audit log: {AUDIT_LOG}")
+
     print(f"Updated manifest: {MANIFEST}")
     print(f"Wrote report: {REPORT}")
     return 0

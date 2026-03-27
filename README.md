@@ -1,6 +1,6 @@
 # drupal-critic
 
-> **This repository has been consolidated into [drupal-meta-skill](https://github.com/zivtech/drupal-meta-skill).**
+> **This repository has been consolidated into [drupal-meta-skills](https://github.com/zivtech/drupal-meta-skills).**
 > Use the consolidated repo for new installs and updates. It now contains the Drupal planner, the critic, and the config executor in one bundle.
 
 A Drupal-specific review skill for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that layers domain expertise on top of [harsh-critic](https://github.com/zivtech/harsh-critic)'s structured investigation protocol. It adds Drupal-specific checks — cache correctness, config workflow safety, contrib-first decisions, render security, migration idempotency — and activates context-driven review perspectives that generic reviewers don't know to apply.
